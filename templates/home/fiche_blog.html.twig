@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block article %}active{% endblock %}
+{% block title %}Detail du blog{% endblock %}
+
+{% block body %}
+<main class="main-container">
+    <section class="page-header page-header-blog-detail">
+        <div class="container">
+            <h1 class="page-title">Détails de l’article</h1>
+            <p class="page-subtitle">Informations, analyses et bonnes pratiques.</p>
+            <nav class="breadcrumb">
+                <ul>
+                    <li class="breadcrumb-item">
+                        <a href="/">Accueil</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="{{ path('app_about') }}">About</a>
+                    </li>
+                    <!-- <li class="breadcrumb-item">
+                            Détails du Magasin
+                        </li> -->
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- contenu principal  -->
+    <div class="blog-container">
+        <!-- en tête  -->
+        <div class="main-content">
+            <img src="/uploads/blog/{{ article.image }}" alt="">
+            <p class="blog-meta">
+                <i class="fa-regular fa-calendar-days"></i> Publié le <strong> {{ article.createdAt|date('d F Y') }}</strong>
+                &nbsp;|&nbsp; <i class="fa-solid fa-user"></i> <strong>Jean-Paul</strong>
+            </p>
+            <h1 class="blog-title">{{ article.title }}</h1>
+            <!-- Contenu -->
+            <div class="blog-content">
+                {{ article.description|nl2br }}
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="blog-sidebar">
+            {% if article.id != article.id %}
+            <h3>Articles récents</h3>
+            <ul class="recent-posts">
+                <li>
+                    <a href="{{ path('app_single_article', {'id': article.id}) }}">
+                        {{ article.title }}
+                    </a>
+                    <span class="post-date">{{ article.createdAt|date('d/m/Y') }}</span>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+</main>
+{% endblock %}

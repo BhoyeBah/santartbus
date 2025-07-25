@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sant'Art-Business{% endblock %}</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('assets/images/santart.jpg') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <!-- header start-->
+    <header class="header">
+
+        <div class="header-top">
+            <div class="info">00221777215233|santartbusiness@gmail.com</div>
+            <div class="social-icons">
+                <a href="#" class="social-icon facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-icon instagram"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="#" class="social-icon twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="header-nav">
+
+            <a href="/">
+                <img src="{{ asset('assets/images/santart.png')}}" alt="" width="100px" height="100px">
+            </a>
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a href="/" class="{% block home %}{% endblock %}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_about') }}" class="{% block about %}{% endblock %}">A propos</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_product') }}" class="{% block product %}{% endblock %}">Produit</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_blog') }}" class="{% block blog %}{% endblock %}">Blog</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_contact') }}" class="{% block contact %}{% endblock %}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="navbar-icons">
+                <div class="cart">
+                    <a href="{{ path('app_cart') }}" class="fas fa-shopping-cart"></a>
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="menu-bars">
+                <span id="menu-toggle" class="fas fa-bars"></span>
+            </div>
+
+        </div>
+
+    </header>
+    <!-- header end-->
+
+    {% block body %}{% endblock %}
+
+
+    <!-- footer start  -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <img src="{{ asset('assets/images/santart.png')}}" alt="santartbusiness" class="footer-logo">
+                <p>
+                    Sant'art promeut l’art et la culture à travers des spectacles, de l’artisanat et des tours touristiques.
+                    Elle forme aussi les jeunes aux métiers créatifs.
+                </p>
+            </div>
+            <div class="footer-box">
+                <h3 class="footer-title">Liens rapides</h3>
+                <ul>
+                    <li>
+                        <a href="#" class="btn-link">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-link">À propos</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-link">Produits</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-link">Événements</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3 class="footer-title">Newsletter</h3>
+                <p>Abonnez-vous pour recevoir nos dernières actualités et offres spéciales.</p>
+                <form action="#" class="newsletter-form">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Votre email" required
+                            aria-label="Votre email" aria-describedby="email">
+                        <span class="input-group-text" id="email">
+                            <i class="fa fa-paper-plane"></i>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="left">
+                <p>
+                    &copy; 2025 Santart'Art-Business, Tout droits réservés.
+                </p>
+            </div>
+            <div class="right">
+                <p>
+                    Design by <a href="#">dymotechnologie.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end  -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            // Options pour les fonctionnalités de Fancybox
+            loop: true, // Permet de revenir au début lorsque vous atteignez la dernière image
+            arrows: true, // Affiche les flèches de navigation
+            toolbar: true, // Affiche la barre d'outils
+            infinite: true, // Permet à la galerie de boucler indéfiniment
+            Thumbs: {
+                autoStart: true, // Démarre les vignettes
+            },
+        });
+    </script>
+</body>
+
+</html>

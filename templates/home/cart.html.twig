@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+{% block cart %}active{% endblock %}
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+
+<div class="main-container">
+    <section class="page-header page-header-cart">
+        <div class="container">
+            <h1 class="page-title">Votre Panier</h1>
+            <p class="page-subtitle">Consultez vos articles avant de commander.</p>
+            <nav class="breadcrumb">
+                <ul>
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Accueil</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="index.html">About</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="cart">
+        <!-- Cart Header -->
+        {% if panier|length > 0 %}
+        <div class="cart-header">
+            <div class="cart-col">Produit</div>
+            <div class="cart-col">Prix</div>
+            <div class="cart-col">Quantité</div>
+            <div class="cart-col">SubTotal</div>
+        </div>
+        {% endif %}
+
+        <!-- Item 1 -->
+        {% for paniers in panier %}
+        <div class="cart-item">
+
+            <div class="cart-col product-info">
+                <img src="/uploads/products/{{ paniers.product.image }}" alt="{{ paniers.product.name }}">
+                <span>{{ paniers.product.name }}</span>
+            </div>
+            <div class="cart-col">{{ paniers.product.price }} FCFA</div>
+            <div class="cart-col quantity-control">
+                <form action="{{ path('app_cart_decrease', {'id': paniers.product.id}) }}" method="post" style="display: inline;">
+                    <button type="submit" class="btn-decrease">-</button>
+                </form>
+
+                <span class="quantity">{{ paniers.quantity }}</span>
+
+                <form action="{{ path('app_cart_add', {'id': paniers.product.id}) }}" method="post" style="display: inline;">
+                    <button type="submit" class="btn-increase">+</button>
+                </form>
+            </div>
+            <div class="cart-col">{{ paniers.subtotal }} FCFA</div>
+        </div>
+        {% else %}
+        <p>Votre panier est vide</p>
+        {% endfor %}
+
+
+        {% if panier|length > 0 %}
+        <!-- Actions -->
+        <div class="actions">
+            <div>
+            </div>
+            <form action="{{ path('app_cart_remove') }}">
+                <button type="submit">Vider le panier</button>
+            </form>
+        </div>
+
+        <!-- Cart Total -->
+        <div class="cart-total">
+            <p><strong>Quantité(s) :</strong> <span>{{ fullQuantity }}</span></p>
+            <p><strong>Total :</strong> <span>{{ subtotal }} FCFA</span></p>
+            <a href="{{ path('app_order_create') }}" class="btn-checkout">Validez la commande</a>
+        </div>
+    </section>
+    {% endif %}
+
+</div>
+
+{% endblock %}

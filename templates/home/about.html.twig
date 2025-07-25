@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block about %}active{% endblock %}
+{% block body %}
+
+    <main class="main-container">
+        <section class="page-header page-header-about">
+            <div class="container">
+                <h1 class="page-title">À propos de Sant'art</h1>
+                <p class="page-subtitle">Explorez notre univers culturel et artistique</p>
+                <nav class="breadcrumb">
+                    <ul>
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_home') }}">Accueil</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            À propos
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h1 class="heading wow animate__animated animate__fadeInUp animate__delay-0_5s">Qui sommes-nous ?</h1>
+            <p class="paragraph wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                Promouvoir la culture, former les talents et connecter les traditions au monde moderne
+            </p>
+
+            <div class="container">
+                <div class="about-image wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                    <img src="assets/images/photorealistic-portrait-african-woman.jpg" alt="Sant'art">
+                </div>
+
+                <div class="about-content">
+                    <p class="wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                        Fondée avec la volonté de célébrer l’identité culturelle africaine, <strong>Sant'art</strong> est une entreprise passionnée par l’art, la créativité et le partage. Nous œuvrons pour la mise en lumière des artistes émergents et la valorisation du patrimoine culturel local, à travers des <strong>spectacles vivants, des expositions, des ateliers artistiques</strong> et bien plus encore.
+                    </p>
+
+                    <p class="wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                        Nos actions vont au-delà de la scène artistique. Nous commercialisons une gamme authentique de <strong>produits artisanaux traditionnels</strong> — instruments de musique, vêtements ethniques, œuvres d’art — réalisés par des artisans talentueux. Ces objets racontent une histoire, une culture, un territoire.
+                    </p>
+
+                </div>
+                <p class="wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                    En parallèle, nous proposons des <strong>tours touristiques culturels</strong> dans des lieux emblématiques, où les visiteurs vivent des expériences immersives alliant <em>histoire, art et émotion</em>. Chaque visite est conçue comme un voyage sensoriel et éducatif.
+                </p>
+
+                <p class="wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                    <strong>La transmission</strong> est également au cœur de notre mission. Sant’art forme les jeunes aux métiers des <strong>industries culturelles et créatives</strong>, leur offrant les compétences et l’inspiration nécessaires pour s’insérer dans des secteurs en plein essor. Nos formations s’adaptent aux enjeux actuels : numérique, innovation, entrepreneuriat culturel.
+                </p>
+
+                <p class="wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                    Grâce à une vision inclusive et un profond respect des traditions, nous bâtissons des ponts entre les générations, les disciplines et les cultures. Chez Sant’art, chaque projet est une célébration du talent, de la diversité et de la richesse artistique de notre continent.
+                </p>
+
+                <p class="wow animate__animated animate__fadeInUp animate__delay-0_5s">
+                    <strong>Rejoignez-nous</strong> dans cette aventure humaine et artistique. Ensemble, faisons rayonner la culture au-delà des frontières !
+                </p>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block product %}active{% endblock %}
+{% block body %}
+<main class="main-container">
+    <section class="page-header page-header-shop">
+        <div class="container">
+            <h1 class="page-title">Produit</h1>
+            <p class="page-subtitle">Nos produits</p>
+            <nav class="breadcrumb">
+                <ul>
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Accueil</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="index.html">About</a>
+                    </li>
+                    <!-- <li class="breadcrumb-item">
+                        Détails du Magasin
+                    </li> -->
+                </ul>
+
+            </nav>
+        </div>
+    </section>
+
+       <section class="product" id="product">
+        <h1 class="heading wow animate__animated animate__fadeInUp animate__delay-0_3s">Nos produits</h1>
+        <p class="paragraph wow animate__animated animate__fadeInUp animate__delay-0_4s">
+            Découvrez nos produits artisanaux uniques, alliant tradition et savoir-faire local. Des créations
+            authentiques pour enrichir votre quotidien.
+        </p>
+
+        <div class="container">
+            {% for product in products %}
+                <div class="box-product wow animate__animated animate__fadeInUp animate__delay-0_2s">
+                    <div class="image">
+                        <img src="/uploads/products/{{ product.image }}" alt="{{ product.name }}" width="150px">
+                        <h3>
+                            <a href="{{ path('app_cart_add', {'id': product.id }) }}">{{ product.name }}</a>
+                        </h3>
+                    </div>
+                    <p class="price">Prix : <span>{{ product.price }} CFA</span></p>
+                    <a href="{{ path('app_cart_add', {'id': product.id }) }}" class="btn-buy">Acheter</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+</main>
+
+{% endblock %}

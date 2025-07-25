@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block blog %}active{% endblock %}
+{% block body %}
+<main class="main-container">
+
+    <section class="page-header page-header-blog">
+        <div class="container">
+            <h1 class="page-title">Titre de la Page</h1>
+            <p class="page-subtitle">Une petite description ou un breadcrumb ici</p>
+            <nav class="breadcrumb">
+                <ul>
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Accueil</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="index.html">About</a>
+                    </li>
+                    <!-- <li class="breadcrumb-item">
+                            Détails du Magasin
+                        </li> -->
+                </ul>
+
+            </nav>
+        </div>
+    </section>
+
+
+    <section class="blog" id="blog">
+        <h1 class="heading wow animate__animated animate__fadeInUp">Latest from blog</h1>
+        <p class="paragraph wow animate__animated animate__fadeInUp animate__delay-0_2s">
+            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit <br>
+            officia consequat duis.
+        </p>
+
+        <div class="container">
+            {% for article in articles %}
+            <div class="card wow animate__animated animate__fadeInUp animate__delay-0_2s">
+                <div class="card-imag">
+                    <img src="/uploads/blog/{{ article.image }}" alt="{{ article.title }}">
+                    <div class="image-overlay">
+                        <a href="{{ path('app_single_article', {'id': article.id }) }}" class="read-more-btn">Lire plus</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="tag tag-tech">{{ article.category.name }}</span>
+                    <h4>
+                        {{ article.title }}
+                    </h4>
+                    <p>
+                        {{ article.description|u.truncate(100, '...', false)}}
+                    </p>
+                    <div class="user">
+                        <img src="{{ asset('assets/images/team/avatar-homme.avif') }}" alt="image utilisateur">
+                        <div class="user-info">
+                            <h5>Autheur</h5>
+                            <small>{{ article.createdAt|date('d/m/Y') }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

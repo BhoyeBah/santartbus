@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Category{% endblock %}
+{% block product %}active{% endblock %}
+{% block product_menu %}show{% endblock %}
+{% block category_index %}active{% endblock %}
+
+{% block body %}
+
+    {{ include('admin/category/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+{% endblock %}

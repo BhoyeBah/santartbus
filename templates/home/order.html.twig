@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+{% block order %}active{% endblock %}
+{% block body %}
+<main class="main-container">
+    <section class="page-header page-header-commande">
+        <div class="container">
+            <h1 class="page-title">Finalisation de la commande</h1>
+            <p class="page-subtitle">Vérifiez vos informations avant confirmation</p>
+            <nav class="breadcrumb">
+                <ul>
+                    <li class="breadcrumb-item">
+                        <a href="{{ path('app_home') }}">Accueil</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <a href="#">Commande</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div class="checkout-container">
+        <!-- Section formulaire -->
+        <div class="billing-section">
+            <h1>Informations de facturation</h1>
+            
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.nom) }}
+                    {{ form_widget(form.nom) }}
+                    {{ form_errors(form.nom) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.prenom) }}
+                    {{ form_widget(form.prenom) }}
+                    {{ form_errors(form.prenom) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.ville) }}
+                    {{ form_widget(form.ville) }}
+                    {{ form_errors(form.ville) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.adresse) }}
+                    {{ form_widget(form.adresse) }}
+                    {{ form_errors(form.adresse) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                    {{ form_errors(form.phone) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </div>
+        </div>
+
+        <!-- Récapitulatif de commande -->
+        <div class="order-summary">
+            <h2>Votre commande</h2>
+
+            {% for paniers in panier %}
+
+            <div class="order-item">
+                <div class="product-info">
+                    <img src="/uploads/products/{{ paniers.product.image }}" 
+                         alt="{{ paniers.product.name }}" 
+                         class="product-image">
+                    <span>{{ paniers.product.name }}</span>
+                </div>
+                <span>{{ (paniers.product.price * paniers.quantity) }} FCFA</span>
+            </div>
+            {% endfor %}
+
+            <hr>
+
+            <div class="order-item">
+                <span>Sous-total</span>
+                <span>{{ total }} FCFA</span>
+            </div>
+
+            <div class="order-item">
+                <span>Livraison</span>
+                <span>Gratuite</span>
+            </div>
+
+            <div class="order-total">
+                <span>Total</span>
+                <span>{{ total }} FCFA</span>
+            </div>
+
+            <button type="submit" class="place-order">Confirmer la commande</button>
+            {{ form_end(form) }}
+
+            <!-- <div class="save-info">
+                <input type="checkbox" id="save-info" name="_remember_info">
+                <label for="save-info">Enregistrer ces informations pour mes prochaines commandes</label>
+            </div> -->
+        </div>
+    </div>
+</main>
+{% endblock %}

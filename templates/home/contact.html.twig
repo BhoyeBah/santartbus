@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block contact %}active{% endblock %}
+{% block body %}
+
+    <main class="main-container">
+        <section class="page-header page-header-contact">
+            <div class="container">
+                <h1 class="page-title">Contactez-nous</h1>
+                <!-- <p class="page-subtitle">Une petite description ou un breadcrumb ici</p> -->
+                <nav class="breadcrumb">
+                    <ul>
+                        <li class="breadcrumb-item">
+                            <a href="{{ path('app_home') }}">Accueil</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="{{ path('app_contact') }}">Contact</a>
+                        </li>
+                        <!-- <li class="breadcrumb-item">
+                            Détails du Magasin
+                        </li> -->
+                    </ul>
+
+                </nav>
+            </div>
+        </section>
+
+        <!-- start contact section  -->
+        <section class="contact" id="contact">
+            <div class="section-title">
+                <h2 class="wow animate__animated animate__fadeInUp">Contact</h2>
+                <p class="wow animate__animated animate__fadeInUp">
+                    Contactez-nous pour toute demande, notre équipe vous répond dans les plus brefs délais.
+                </p>
+            </div>
+            <div class="container">
+                <div class="contact-info">
+                    <div class="content">
+                        <div class="info-item wow animate__animated animate__fadeInUp">
+                            <i class="fa fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Addresse</h3>
+                                <p>
+                                    Nord foire cite marine villa nº4
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-item wow animate__animated animate__fadeInUp">
+                            <i class="fa fa-phone-alt"></i>
+                            <div>
+                                <h3>Téléphone</h3>
+                                <p>
+                                    78 499 67 17 / 78 414 72 63
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-item wow animate__animated animate__fadeInUp">
+                            <i class="fa fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>contact@santartsbusiness.com</p>
+                            </div>
+                        </div>
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                                frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                    {{ form_start(form) }}
+
+                    <div class="form-row">
+                        <div class="form-group half-width wow animate__animated animate__fadeInUp">
+                            {{ form_label(form.name, 'Nom complet') }}
+                            {{ form_widget(form.name, {'attr': {'id': 'name-field'}}) }}
+                            {{ form_errors(form.name) }}
+                        </div>
+
+                        <div class="form-group half-width wow animate__animated animate__fadeInUp">
+                            {{ form_label(form.email, 'Email') }}
+                            {{ form_widget(form.email, {'attr': {'id': 'email-field'}}) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group wow animate__animated animate__fadeInUp">
+                        {{ form_label(form.subject, 'Sujet') }}
+                        {{ form_widget(form.subject, {'attr': {'id': 'subject-field'}}) }}
+                        {{ form_errors(form.subject) }}
+                    </div>
+
+                    <div class="form-group wow animate__animated animate__fadeInUp">
+                        {{ form_label(form.message, 'Message') }}
+                        {{ form_widget(form.message, {'attr': {'id': 'message-field', 'rows': '15'}}) }}
+                        {{ form_errors(form.message) }}
+                    </div>
+
+                    <div class="submit-btn wow animate__animated animate__fadeInUp">
+                        {{ form_widget(form.envoyer) }}
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+        </section>
+        <!-- end contact section  -->
+    </main>
+
+{% endblock %}
