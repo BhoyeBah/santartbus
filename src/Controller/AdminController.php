@@ -17,7 +17,7 @@ final class AdminController extends AbstractController
         $this->orderRepository = $orderRepository;
     }
 
-    #[Route('/admin', name: 'app_admin')]
+    #[Route('/admin/dashboard', name: 'app_admin')]
     public function index(): Response
     {
         return $this->render('admin/index.html.twig', [
