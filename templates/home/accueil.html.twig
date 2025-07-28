@@ -131,7 +131,7 @@
                 <div class="card-imag">
                     <img src="/uploads/blog/{{ article.image }}" alt="{{ article.title }}">
                     <div class="image-overlay">
-                        <a href="{{ path('app_single_article', {'id': article.id }) }}" class="read-more-btn">Lire plus</a>
+                        <a href="{{ path('app_single_article', {'slug': article.slug }) }}" class="read-more-btn">Lire plus</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -156,37 +156,72 @@
 
 
     <section class="gallery" id="gallery">
-        <h1 class="heading">Notre Galérie</h1>
-        <p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi rerum nobis ipsa
-            reiciendis consequuntur
-            fugiat voluptate</p>
+        <h1 class="heading">Notre Galerie</h1>
+        <p class="paragraph">
+            Chaque image vous fait rêver ? Transformez ce rêve en réalité, contactez-moi !
+        </p>
 
-        <div class="gallery-grid">
-            <a data-fancybox="gallery" href="https://lipsum.app/id/60/1200x800">
-                <img src="https://lipsum.app/id/60/400x300" alt="Image 1">
+        <div class="gallery-scroll">
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_1.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_1.jpg') }}" alt="Image 1">
             </a>
-            <a data-fancybox="gallery" href="https://lipsum.app/id/61/1200x800">
-                <img src="https://lipsum.app/id/61/400x300" alt="Image 2">
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_3.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_3.jpg') }}" alt="Image 1">
             </a>
-            <a data-fancybox="gallery" href="https://lipsum.app/id/62/1200x800">
-                <img src="https://lipsum.app/id/62/400x300" alt="Image 3">
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_4.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_4.jpg') }}" alt="Image 1">
             </a>
-            <a data-fancybox="gallery" href="https://lipsum.app/id/63/1200x800">
-                <img src="https://lipsum.app/id/63/400x300" alt="Image 4">
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_5.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_5.jpg') }}" alt="Image 1">
             </a>
-            <a data-fancybox="gallery" href="https://lipsum.app/id/64/1200x800">
-                <img src="https://lipsum.app/id/64/400x300" alt="Image 5">
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_6.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_6.jpg') }}" alt="Image 1">
             </a>
-            <a data-fancybox="gallery" href="https://lipsum.app/id/65/1200x800">
-                <img src="https://lipsum.app/id/65/400x300" alt="Image 6">
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_7.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_7.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_8.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_8.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_10.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_10.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_11.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_11.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_12.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_12.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_13.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_13.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_16.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_16.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_17.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_17.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_18.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_18.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_20.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_20.jpg') }}" alt="Image 1">
+            </a>
+
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_21.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_21.jpg') }}" alt="Image 1">
+            </a>
+            <a data-fancybox="gallery" href="{{ asset('assets/images/galley/galery_23.jpg') }}">
+                <img src="{{ asset('assets/images/galley/galery_23.jpg') }}" alt="Image 1">
             </a>
         </div>
-
     </section>
+
     <section class="team" id="team">
         <h1 class="heading wow animate__animated animate__fadeInUp animate__delay-0_5s">Notre équipe</h1>
-        <p class="paragraph wow animate__animated animate__fadeInUp animate__delay-0_7s">Necessitatibus eius
-            consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p class="paragraph wow animate__animated animate__fadeInUp animate__delay-0_7s">
+            Notre équipe dévouée vous accompagne avec passion et professionnalisme.
+        </p>
         <div class="container">
             <div class="our-team wow animate__animated animate__fadeInUp animate__delay-1s">
                 <div class="pic">
