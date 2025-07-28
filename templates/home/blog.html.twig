@@ -38,7 +38,7 @@
                 <div class="card-imag">
                     <img src="/uploads/blog/{{ article.image }}" alt="{{ article.title }}">
                     <div class="image-overlay">
-                        <a href="{{ path('app_single_article', {'id': article.id }) }}" class="read-more-btn">Lire plus</a>
+                        <a href="{{ path('app_single_article', {'slug': article.slug }) }}" class="read-more-btn">Lire plus</a>
                     </div>
                 </div>
                 <div class="card-body">
